@@ -1,6 +1,6 @@
 # 環境構築
+## プロジェクトの初期化
 ```
-// プロジェクトの初期化
 pnpm dlx create-next-app@latest angya-app \
 	—typescript \
 	—tailwind \
@@ -18,8 +18,10 @@ pnpm dev
 
 // 以下のパスにブラウザでアクセス(動作確認)
 http://localhost:3000
+```
 
-// GitHubへの登録
+## GitHubへの登録
+```
 git init
 
 // 無駄なファイルが紛れていないかを確認して適宜.gitignoreへ登録

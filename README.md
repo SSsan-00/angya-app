@@ -1,4 +1,12 @@
-# 行脚アプリ要件定義
+# 行脚アプリ
+##　機能
+```
+行脚した場所(路線)を記録していく
+猫の要素があるといい。。🐈
+肉球とか
+開発手法はTDDで進めていく
+```
+**技術スタック↓↓↓**
 ## プログラミング言語・フレームワーク
   - TypeScript
   - Tailwind CSS
@@ -22,25 +30,3 @@
 	- 開発ログとして0から環境を0から作成する手順も記録していく
 - npmサプライチェーン攻撃対策を必ず行う
 - その他セキュリティの脆弱性を生まないように細心の注意を払う
-
-## 環境構築
-```
-// プロジェクトの初期化
-pnpm dlx create-next-app@latest angya-app \
-	—typescript \
-	—tailwind \
-	—eslint \
-	—app \
-	—src-dir false \
-	—import-alias “@/*”
-
-cd angya-app
-
-// パッケージのインストール
-pnpm install
-// サーバーの起動
-pnpm dev
-
-// 以下のパスにブラウザでアクセス(動作確認)
-http://localhost:3000
-```

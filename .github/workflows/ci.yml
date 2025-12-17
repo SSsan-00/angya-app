@@ -1,0 +1,39 @@
+# ワークフローの表示名
+name: CI (step1)
+
+# 実行トリガー
+on:
+  #　　mainブランチへのプッシュ時に実行
+  push:
+    branches: [main]
+
+  # mainブランチに対してプルリクエストの作成・更新時に実行
+  pull_request:
+    branches: [main]
+  
+
+# GitHub Actionsがリポジトリに対して行える権限の設定
+permissions:
+  contents: read
+
+# 実行するジョブの定義
+jobs:
+  # ジョブのID(内部的な識別子)
+  hello:
+
+    # どの環境(OS)でジョブを実行するか
+    # GitHubが提供する最新の仮想環境(Ubuntu)
+    runs-on: ubuntu-latest
+
+    # ジョブ内で実行するステップの定義
+    steps:
+      # チェックアウト
+      # GitHub Actionsの実行環境にリポジトリをクローンする
+      - name: Checout
+        uses: actions/checkout@v5
+
+      # コマンドの実行
+      - name: Hello
+        run: |
+          echo "GitHub Actions is running!"
+          ls -la

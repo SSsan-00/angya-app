@@ -50,3 +50,8 @@ jobs:
           corepack enable
           node -v
           pnpm -v
+        
+      # 依存関係のインストール
+      # --frozen-lockfile: pnpm-lock.yamlの内容と一致していない場合、エラーにする
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile

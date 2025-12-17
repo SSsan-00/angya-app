@@ -59,3 +59,7 @@ jobs:
       # コードの静的解析(Lint)
       - name: Lint
         run: pnpm run lint
+      
+      # TypeScriptの型チェック(コンパイルなし)
+      - name: Typecheck
+        run: pnpm run typecheck

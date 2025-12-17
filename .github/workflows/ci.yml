@@ -67,3 +67,7 @@ jobs:
       # テストの実行
       - name: Test
         run: pnpm run test:ci
+
+      # Next.jsのビルド(本番ビルドが通るかの確認)
+      - name: Build
+        run: pnpm run build

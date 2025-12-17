@@ -1,5 +1,5 @@
 # ワークフローの表示名
-name: CI (step1)
+name: CI
 
 # 実行トリガー
 on:
@@ -16,6 +16,11 @@ on:
 permissions:
   contents: read
 
+# 連続pushで古い実行をキャンセルする
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
 # 実行するジョブの定義
 jobs:
   # ジョブのID(内部的な識別子)
@@ -29,7 +34,7 @@ jobs:
     steps:
       # チェックアウト
       # GitHub Actionsの実行環境にリポジトリをクローンする
-      - name: Checout
+      - name: Checkout
         uses: actions/checkout@v5
 
       # コマンドの実行
@@ -43,6 +48,8 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "pnpm"
+          cache-dependency-path: "pnpm-lock.yaml"
       
       # pnpmを使えるようにする
       - name: Enable pnpm (Corepack)

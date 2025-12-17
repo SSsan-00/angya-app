@@ -37,3 +37,16 @@ jobs:
         run: |
           echo "GitHub Actions is running!"
           ls -la
+
+      # Node.jsのセットアップ
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+      
+      # pnpmを使えるようにする
+      - name: Enable pnpm (Corepack)
+        run: |
+          corepack enable
+          node -v
+          pnpm -v

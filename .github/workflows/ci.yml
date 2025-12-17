@@ -63,3 +63,7 @@ jobs:
       # TypeScriptの型チェック(コンパイルなし)
       - name: Typecheck
         run: pnpm run typecheck
+
+      # テストの実行
+      - name: Test
+        run: pnpm run test:ci

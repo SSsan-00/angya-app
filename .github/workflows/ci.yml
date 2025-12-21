@@ -35,13 +35,7 @@ jobs:
       # チェックアウト
       # GitHub Actionsの実行環境にリポジトリをクローンする
       - name: Checkout
-        uses: actions/checkout@v5
-
-      # コマンドの実行
-      - name: Hello
-        run: |
-          echo "GitHub Actions is running!"
-          ls -la
+        uses: actions/checkout@v4
 
       # Node.jsのセットアップ
       - name: Setup Node

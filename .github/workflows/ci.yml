@@ -24,7 +24,7 @@ concurrency:
 # 実行するジョブの定義
 jobs:
   # ジョブのID(内部的な識別子)
-  hello:
+  ci:
 
     # どの環境(OS)でジョブを実行するか
     # GitHubが提供する最新の仮想環境(Ubuntu)
@@ -48,12 +48,13 @@ jobs:
         uses: actions/setup-node@v4
         with:
           node-version: "20"
+          cache: "pnpm"
       
       # pnpmを使えるようにする
       - name: Enable pnpm (Corepack)
         run: |
           corepack enable
-          node -v
+          corepack prepare pnpm@10.22.0 --activate
           pnpm -v
         
       # 依存関係のインストール
